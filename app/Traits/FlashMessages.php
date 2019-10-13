@@ -40,20 +40,24 @@ trait FlashMessages{
         switch($type){
             case 'info':{
                 $model = 'infoMessages';
-                break;
             }
+            break;
+
             case 'error':{
                 $model = 'errorMessages';
-                break;
             }
+            break;
+
             case 'success':{
                 $model = 'successMessages';
-                break;
             }
+            break;
+
             case 'warning':{
                 $model = 'warningMessages';
-                break;
             } 
+            break;
+
         }
 
         if(is_array($message)){
