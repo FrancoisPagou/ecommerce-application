@@ -59,6 +59,7 @@ class LoginController extends Controller
         return $redirect;
     }
 
+
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
