@@ -33,7 +33,7 @@ trait FlashMessages{
      * 
      * @return void
      */
-    public function setFlashMessages($message, $type)
+    protected function setFlashMessage($message, $type)
     {
         $model = '';
 
@@ -68,5 +68,27 @@ trait FlashMessages{
         else{
             array_push($this->model, $message);
         }
+    }
+
+    /**
+     * @return array
+     * 
+     */
+    protected function getFlashMessage()
+    {
+        return [
+            'error' => $this->errorMessages,
+            'info' => $this->warningMessages,
+            'success' => $this->successMessages,
+            'warning' => $this->warningMessages
+        ];
+    }
+
+    protected function showFlashMessages()
+    {
+        session()->flash('error', $this->errorMessages);
+        session()->flash('info', $this->infoMessages);
+        session()->flash('success', $this->successMessages);
+        session()->flash('warning', $this->warningMessages);
     }
 }
