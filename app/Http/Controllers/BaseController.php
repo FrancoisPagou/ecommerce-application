@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Traits\FlashMessages;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Message;
 
 class BaseController extends Controller
 {
@@ -51,5 +52,25 @@ class BaseController extends Controller
             'message' => $message,
             'data' => $data
         ]);
+    }
+
+    /**
+     * @param $route
+     * @param string|array $message
+     * @param string $type
+     * @param bool $error
+     */
+    protected function responseRedirect($route, $message, $type = 'info', $error = false)
+    {
+        $this->setFlashMessage($message, $type);
+        $this->showFlashMessages();
+
+        if($error){
+            $redirectPath = redirect()->back()->withInput();
+        }else{
+            $redirectPath = redirect()->route($route);
+        }
+
+        return $redirectPath;
     }
 }
