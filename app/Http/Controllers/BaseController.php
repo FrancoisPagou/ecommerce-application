@@ -73,4 +73,17 @@ class BaseController extends Controller
 
         return $redirectPath;
     }
+
+    /**
+     * @param $message
+     * @param string $type
+     * @param bool $error, 
+     */
+    protected function responseRedirectBack($message, $type = 'info', $error = false)
+    {
+        $this->setFlashMessage($message, $type);
+        $this->showFlashMessages();
+
+        return redirect()->back();
+    }
 }
