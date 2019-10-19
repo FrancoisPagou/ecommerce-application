@@ -51,7 +51,7 @@ interface BaseContract{
      * @param array $data
      * @return mixed
      */
-    public function findBy(array $data);*
+    public function findBy(array $data);
 
     /**
      * Find one based on a different column
@@ -66,6 +66,5 @@ interface BaseContract{
      * @return mixed
      */
     public function delete(int $id);
-}
 
 }
