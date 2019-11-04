@@ -84,8 +84,6 @@ trait FlashMessages{
         ];
     }
 
-    protected $dbUser = Eloquent::delete('delete users where name = ?', ['John']);
-
     protected function showFlashMessages()
     {
         session()->flash('error', $this->errorMessages);

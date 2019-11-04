@@ -42,9 +42,11 @@ class Setting extends Model
         $entry->value = $value;
         $entry->saveOrFail();
         Config::set('key', $value);
+        
         if (Config::get($key) == $value) {
             return true;
         }
+
         return false;
     }
 }
